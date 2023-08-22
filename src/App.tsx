@@ -1,12 +1,18 @@
 import React from "react";
+import Button, { ButtonSize, ButtonType } from "./components/Button/button";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hello World</h1>
-        <h2>Hello World</h2>
-        <h3>Hello World</h3>
+        <Button> Hello </Button>
+        <Button btnType={ButtonType.Primary} disabled size={ButtonSize.Large}>
+          Hello
+        </Button>
+        <Button btnType={ButtonType.Link} href={"http://www.baidu.com"}>
+          baidu
+        </Button>
+        <></>
         <a
           className="App-link"
           href="https://reactjs.org"
