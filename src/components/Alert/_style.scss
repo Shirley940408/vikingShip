@@ -1,0 +1,32 @@
+.alt {
+  position: fixed;
+  background-color: aqua;
+  top: 100px;
+  left: 100px;
+  color: $body-color;
+  border: $alert-border-width solid transparent;
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $border-radius;
+  min-width: 350px;
+  z-index: 9999;
+}
+.alt-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.alt-success {
+  @include alert-style($success, $success, $white);
+}
+.alt-danger {
+  @include alert-style($danger, $danger, $white);
+}
+.alt-default {
+  @include alert-style($primary, $primary, $body-color);
+}
+.alt-warning {
+  @include alert-style($warning, $warning, $body-color);
+}
