@@ -7,7 +7,6 @@ export enum AlertType {
   Danger = "danger",
   Warning = "warning",
 }
-
 interface BaseAlertProps {
   className?: string;
   altType?: AlertType;
@@ -17,20 +16,14 @@ interface BaseAlertProps {
   showCloseButton?: boolean;
 }
 
-const alert = (props: BaseAlertProps) => {
-  const {
-    message = "This is an alert",
-    className,
-    altType,
-    onClose,
-    title,
-    showCloseButton = true,
-  } = props;
+const Alert = (props: BaseAlertProps) => {
+  const { message, className, altType, onClose, title, showCloseButton } =
+    props;
   const classes = classNames("alt", className, {
     [`alt-${altType}`]: altType,
   });
   return (
-    <div className={classes}>
+    <div className={classes} data-testid="alert-container">
       {title && <h4>{title}</h4>}
       <p>{message}</p>
       {showCloseButton && (
@@ -41,5 +34,10 @@ const alert = (props: BaseAlertProps) => {
     </div>
   );
 };
+Alert.defaultProps = {
+  showCloseButton: true,
+  altType: AlertType.Default,
+  message: "This is an alert",
+};
 
-export default alert;
+export default Alert;
