@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import Button, { ButtonSize, ButtonType } from "./components/Button/button";
 import Alert, { AlertType } from "./components/Alert/alert";
+import Menu from "./components/Menu/menu";
+import MenuItem from "./components/Menu/menuItem";
 
 function App() {
   const [showAlert, setShowAlert] = useState(true);
-
   return (
     <div className="App">
       <header className="App-header">
+        <Menu
+          defaultIndex={0}
+          onSelect={(index) => {
+            alert(index);
+          }}
+        >
+          <MenuItem index={0}>cool link1</MenuItem>
+          <MenuItem index={1}>cool link2</MenuItem>
+          <MenuItem index={2}>cool link3</MenuItem>
+        </Menu>
         {showAlert && (
           <Alert
             altType={AlertType.Success}
